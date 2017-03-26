@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <title>Conversor</title>
+    <meta name="description" content="Conversor de medidas">
+    <!-- FONTS -->
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <!-- JS -->
+    <script type="text/javascript" src="assets/js/conversor.js"></script>
+  </head>
+
+  <body>
+    <div class="main_container">
+      <div class="row" id="tittle">
+        <h1>
+          Conversor de Temperaturas
+          <img class="img-tittle" src="assets/img/logo.png" alt="">
+        </h1>
+      </div>
+      <div class="row" id="container">
+        <div class="one-half column">
+         <h4 align="justify" id="text-example">
+           Conversor de temperaturas el cual permite hacer conversiones de temperaturas (Celsius, Fahrenheit o Kelvin). La forma de uso sería la siguiente.</br> - EJEMPLO DE USO: 32C to K para pasar de Celsius a Kelvin (to es opcional).
+         </h4>
+         <div id="container-convertion">
+           <label>Introduzca un valor</label></br>
+           <input id="original" autofocus onchange="converter();"></br>
+           <label>Conversión</label>
+           <div id="text-converted"><span class="output" id="converted"></span></div>
+         </div>
+       </div>
+      </div>
+    </div>
+  </body>
+
+  <footer>
+    <div class="footer-below">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h4>Copyright &copy; <a href="https://berkanrhdz.github.io" target="_blank">berkanrhdz</a> - <a href="https://javiergonher.github.io/" target="_blank">javiergonher</a><a href="https://github.com/ULL-ESIT-DSI-1617" target="_blank">
+              <img class="img-footer" src="assets/img/github-icon.png" alt=""></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</html>
