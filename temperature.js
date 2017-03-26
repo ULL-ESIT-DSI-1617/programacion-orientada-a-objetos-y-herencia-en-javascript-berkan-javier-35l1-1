@@ -1,12 +1,24 @@
 "use strict"; 
 
-class Measurement{
-    constructor(value, magnitude){
-        let _value = value;
-        let _magnitude = magnitude;
+let Measurement = (function(){
+
+    let _value = Symbol();
+    let _magnitude = Symbol();
+
+    class Measurement{
+        constructor(value, magnitude){
+            this[_value] = value;
+            this[_magnitude] = magnitude;
+        }
+        get value(){
+            return this[_value];
+        }
+        get magnitude(){
+            return this[_magnitude];
+        }
     }
-    
-}
+    return Measurement;
+}());
 
 class Temperature extends Measurement{
     constructor(value, magnitude){
@@ -20,7 +32,7 @@ class Celcius extends Temperature{
     }
 
     toKelvin(num){
-        var result = num + 273.15;
+        var result = this.value + 273.15;
         return result = result.toFixed(1)+" Kelvin";
     }
 
@@ -40,9 +52,25 @@ class Farenheit extends Temperature{
         return result = result.toFixed(2)+" Kelvin";
     }
 
-    toCelcius(num){
+    toCelsius(num){
         var result = (num - 32) / (9/5);
         return result = result.toFixed(2)+" Celcius"
+    }
+}
+
+class Kelvin extends Temperature{
+    constructor(value, magnitude){
+        super(value, magnitude);
+    }
+
+    toCelsius(num){
+        var result = num - 273.15;
+        return result = result.toFixed(2)+" Celcius";
+    }
+
+    toFarenheit(num){
+        var result = (num * 9/5)-459.67;
+        return result = result.toFixed(2)+" Farenheit"
     }
 }
 
@@ -80,13 +108,27 @@ function main(){
                 break;
                 case "c":
                 case "C":
-                    converted.innerHTML = temp.toCelcius(num);
+                    converted.innerHTML = temp.toCelsius(num);
                 break;
                 default: break;
             }
         }
+        else{
+            var temp = new Kelvin(num, fromType);
+            switch(toType){
+                case "f":
+                case "F":
+                    converted.innerHTML = temp.toFarenheit(num);
+                break;
+                case "c":
+                case "C":
+                    converted.innerHTML = temp.toCelsius(num);
+                break;
+                default: break;
+            }  
+        }
     }
     else{
-        converted.innerHTML = "ERROR! Try something like '-4.2C' instead";
+        converted.innerHTML = "ERROR! Try something like '-4.2C to f' or '-4.2C f' instead";
     }
 }
