@@ -188,3 +188,34 @@ x === {}; // false
 x === z; // false
 ```
 
+# Prototipos y clases en JavaScript
+
+La herencia en JavaScript se basa en los prototipos, todo objeto en JavaScript posee un prototipo, del cual hereda sus propiedades y métodos. 
+
+JavaScript es un lenguaje orientado a prototipos. El prototipo es un objeto como otro cualquiera al que se pueden añadir o quitar propiedades y métodos. 
+
+Una modificación del prototipo trascenderá a todos los objetos asociados. 
+* Si borramos un método, éste ya no se podrá invocar sobre los objetos enlazados.
+* Si añadimos un método, éste se podrá invocar sobre todos los objetos asociados al prototipo.
+
+## Prototipos, clases y herencia
+
+Una clase en JavaScript es el conjunto de objetos que tienen el mismo prototipo(el de la clase). Los objetos de la clase heredan métodos y propiedades del prototipo de la clase. 
+
+Si una clase deriva de otra sus prototipos están enlazados, se hereda de toda la cadena de prototipos hasta llegar a la raíz del árbol. 
+
+La clase Objetct es la clase raíz del árbol de herencia, su prototipo es el único que no tiene prototipo. Las clases predefinidas Array, RegExp, Date, ... derivan directamente de Object. 
+
+Las clases predefinidas tienen además literales({..},[..],/../,...). Permiten construir objetos de forma mucho más legible y eficaz. Los literales deben utilizarse siempre que sea posible(en vez de los constructores). 
+
+## Añadir método integer a clase Number
+
+```javascript
+Number.prototype.integer:function(){
+    return Math[this < 0 ? "ceil":"floor"](this);
+}
+
+7.3.integer();
+-7.3.integer();
+```
+
