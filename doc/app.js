@@ -57,9 +57,9 @@ app.get('/login', function (req, res) {
   res.render('login',{message: "INICIE SESIÓN PARA VER EL CONTENIDO."});
 });
 
-//MOSTRAMOS LA VISTA AUX CUANDO DE HACE UN GET A /
+//MOSTRAMOS LA VISTA LOGIN CUANDO DE HACE UN GET A /
 app.get('/', function(req, res) {
-  res.render('login');
+  res.render('login',{message: "INICIE SESIÓN PARA VER EL CONTENIDO."});
 });
 
 // CIERRE DE SESIÓN
