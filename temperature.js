@@ -30,6 +30,22 @@ class Celcius extends Temperature{
     }
 }
 
+class Farenheit extends Temperature{
+    constructor(value, magnitude){
+        super(value, magnitude);
+    }
+
+    toKelvin(num){
+        var result = (num + 459.67) * 5/9;
+        return result = result.toFixed(2)+" Kelvin";
+    }
+
+    toCelcius(num){
+        var result = (num - 32) / (9/5);
+        return result = result.toFixed(2)+" Celcius"
+    }
+}
+
 function main(){
     var temp = original.value;
     var regexp = /([-+]?\d+(?:\.\d*)?)\s*([fFcCkK])\s*(to)?\s*([fFcCkK])\s*$/;
@@ -43,7 +59,6 @@ function main(){
         num = parseFloat(num);
         if (fromType == 'c' || fromType == 'C') {
             var temp = new Celcius(num, fromType);
-            alert(temp._value);
             switch(toType){
                 case "k":
                 case "K":
@@ -52,6 +67,20 @@ function main(){
                 case "f":
                 case "F":
                     converted.innerHTML = temp.toFarenheit(num);
+                break;
+                default: break;
+            }
+        }
+        else if (fromType == 'f' || fromType == 'F') {
+            var temp = new Farenheit(num, fromType);
+            switch(toType){
+                case "k":
+                case "K":
+                    converted.innerHTML = temp.toKelvin(num);
+                break;
+                case "c":
+                case "C":
+                    converted.innerHTML = temp.toCelcius(num);
                 break;
                 default: break;
             }
