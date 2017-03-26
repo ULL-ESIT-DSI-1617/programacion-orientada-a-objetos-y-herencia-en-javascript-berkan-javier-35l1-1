@@ -1,4 +1,4 @@
-# **Práctica: Programacón Orientada a Objetos JavaScript-**
+# **Práctica: Programación Orientada a Objetos JavaScript**
 
 Continuación de los apuntes de la asignatura con los capítulos de Programación Orientada a Objetos Javascript
 ## Enlaces
