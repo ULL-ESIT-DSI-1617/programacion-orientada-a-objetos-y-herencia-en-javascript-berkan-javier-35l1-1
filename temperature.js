@@ -32,7 +32,7 @@ class Celcius extends Temperature{
 
 function main(){
     var temp = original.value;
-    var regexp = /([-+]?\d+(?:\.\d*)?)\s*([fFcCkK])/;
+    var regexp = /([-+]?\d+(?:\.\d*)?)\s*([fFcCkK])\s*(to)?\s*([fFcCkK])\s*$/;
 
     var m = temp.match(regexp);
 
