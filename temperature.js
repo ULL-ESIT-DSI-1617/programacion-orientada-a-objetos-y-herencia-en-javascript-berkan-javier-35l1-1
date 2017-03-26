@@ -31,14 +31,12 @@ class Celcius extends Temperature{
         super(value, magnitude);
     }
 
-    toKelvin(num){
-        var result = this.value + 273.15;
-        return result = result.toFixed(1)+" Kelvin";
+    toKelvin(){
+        return (this.value + 273.15).toFixed(2)+" Kelvin";
     }
 
-    toFarenheit(num){
-        var result = (num * 9/5)+32;
-        return result = result.toFixed(1)+" Farenheit"
+    toFarenheit(){
+        return ((this.value * 9/5)+32).toFixed(2)+" Farenheit";
     }
 }
 
@@ -47,14 +45,12 @@ class Farenheit extends Temperature{
         super(value, magnitude);
     }
 
-    toKelvin(num){
-        var result = (num + 459.67) * 5/9;
-        return result = result.toFixed(2)+" Kelvin";
+    toKelvin(){
+        return ((this.value + 459.67) * 5/9).toFixed(2)+" Kelvin";
     }
 
-    toCelsius(num){
-        var result = (num - 32) / (9/5);
-        return result = result.toFixed(2)+" Celcius"
+    toCelsius(){
+        return ((this.value - 32) / (9/5)).toFixed(2)+" Celcius";
     }
 }
 
@@ -63,18 +59,16 @@ class Kelvin extends Temperature{
         super(value, magnitude);
     }
 
-    toCelsius(num){
-        var result = num - 273.15;
-        return result = result.toFixed(2)+" Celcius";
+    toCelsius(){
+        return (this.value - 273.15).toFixed(2)+" Celcius";
     }
 
-    toFarenheit(num){
-        var result = (num * 9/5)-459.67;
-        return result = result.toFixed(2)+" Farenheit"
+    toFarenheit(){
+        return ((this.value * 9/5)-459.67).toFixed(2)+" Farenheit";
     }
 }
 
-function main(){
+function converter(){
     var temp = original.value;
     var regexp = /([-+]?\d+(?:\.\d*)?)\s*([fFcCkK])\s*(to)?\s*([fFcCkK])\s*$/;
 
@@ -90,11 +84,11 @@ function main(){
             switch(toType){
                 case "k":
                 case "K":
-                    converted.innerHTML = temp.toKelvin(num);
+                    converted.innerHTML = temp.toKelvin();
                 break;
                 case "f":
                 case "F":
-                    converted.innerHTML = temp.toFarenheit(num);
+                    converted.innerHTML = temp.toFarenheit();
                 break;
                 default: break;
             }
@@ -104,11 +98,11 @@ function main(){
             switch(toType){
                 case "k":
                 case "K":
-                    converted.innerHTML = temp.toKelvin(num);
+                    converted.innerHTML = temp.toKelvin();
                 break;
                 case "c":
                 case "C":
-                    converted.innerHTML = temp.toCelsius(num);
+                    converted.innerHTML = temp.toCelsius();
                 break;
                 default: break;
             }
@@ -118,11 +112,11 @@ function main(){
             switch(toType){
                 case "f":
                 case "F":
-                    converted.innerHTML = temp.toFarenheit(num);
+                    converted.innerHTML = temp.toFarenheit();
                 break;
                 case "c":
                 case "C":
-                    converted.innerHTML = temp.toCelsius(num);
+                    converted.innerHTML = temp.toCelsius();
                 break;
                 default: break;
             }  
