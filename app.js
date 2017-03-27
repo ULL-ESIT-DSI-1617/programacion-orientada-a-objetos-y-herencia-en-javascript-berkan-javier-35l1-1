@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 //CONFIGURANDO VISTAS
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'doc/views'));
 
 //HABILITANDO Y USANDO cookieParser PARA MOSTRAR INFORMACIÓN DE LA SESIÓN
 app.use(cookieParser());
@@ -73,7 +73,7 @@ app.get('/content/*?',
     auth  // next only if authenticated
 );
 
-app.use('/content', express.static(path.join(__dirname, 'public')));
+app.use('/content', express.static(path.join(__dirname, 'doc/public')));
 
 //Asignamos un puerto al servidor, en este caso el puerto 8080.
 app.set('port', (process.env.PORT || 8090));
